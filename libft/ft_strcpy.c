@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 10:57:47 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 11:21:33 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-
-int main(void)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	int		i;
+
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

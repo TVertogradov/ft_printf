@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/01 19:34:31 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 11:31:41 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strdup(const char *s1)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	size_t	len;
+	char	*s2;
+
+	len = ft_strlen(s1) + 1;
+	s2 = (char *)malloc(sizeof(char) * len);
+	if (s2 == NULL)
+		return (NULL);
+	ft_strcpy(s2, s1);
+	return (s2);
 }

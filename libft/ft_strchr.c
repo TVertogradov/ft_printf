@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 13:06:47 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 13:22:52 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strchr(const char *s, int c)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

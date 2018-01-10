@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/05 13:34:50 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/06 17:31:40 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	int		i;
+	char	*str;
+
+	if (s1 && s2)
+	{
+		i = ft_strlen(s1) + ft_strlen(s2);
+		str = ft_memalloc((i) * sizeof(str));
+		if (!str)
+			return (NULL);
+		ft_strcpy(str, s1);
+		ft_strcat(str, s2);
+		return (str);
+	}
+	return (NULL);
 }

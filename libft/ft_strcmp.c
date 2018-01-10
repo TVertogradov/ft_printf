@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 15:20:10 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 15:24:21 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-
-int main(void)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

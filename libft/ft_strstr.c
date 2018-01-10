@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 14:45:40 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 15:01:52 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	char	*a;
+	char	*b;
+
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (*haystack)
+	{
+		a = (char *)haystack;
+		b = (char *)needle;
+		while (*b && *a == *b)
+		{
+			a++;
+			b++;
+		}
+		if (*b == '\0')
+			return ((char *)haystack);
+		haystack++;
+	}
+	return (NULL);
 }

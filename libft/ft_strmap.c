@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/05 12:14:16 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/07 16:59:05 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	size_t	i;
+	char	*fresh;
+
+	if (!s || !f)
+		return (NULL);
+	fresh = ft_strnew(ft_strlen(s));
+	if (!fresh)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		fresh[i] = (*f)(s[i]);
+		i++;
+	}
+	return (fresh);
 }

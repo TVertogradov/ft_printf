@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/10/31 16:27:40 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/10/31 18:00:40 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	unsigned char	*ptr;
+	unsigned char	c2;
+	int				i;
+
+	i = 0;
+	c2 = (unsigned char)c;
+	ptr = (unsigned char *)s;
+	while (n--)
+	{
+		if (ptr[i] == c2)
+			return (ptr + i);
+		i++;
+	}
+	return (NULL);
 }

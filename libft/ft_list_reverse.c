@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/16 10:34:20 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/16 10:40:17 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	ft_list_reverse(t_list **begin_list)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	t_list	*list;
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	list = *begin_list;
+	if (!list || !(list->next))
+		return ;
+	tmp = list->next;
+	tmp2 = tmp->next;
+	list->next = 0;
+	tmp->next = list;
+	while (tmp2)
+	{
+		list = tmp;
+		tmp = tmp2;
+		tmp2 = tmp2->next;
+		tmp->next = list;
+	}
+	*begin_list = tmp;
 }

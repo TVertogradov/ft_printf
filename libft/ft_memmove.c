@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/10/30 17:12:29 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/10/31 15:08:46 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	size_t i;
+
+	if (len == 0)
+		return (dst);
+	if (src < dst)
+	{
+		i = len;
+		while (i > 0)
+		{
+			i--;
+			((char *)dst)[i] = ((char *)src)[i];
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	return (dst);
 }

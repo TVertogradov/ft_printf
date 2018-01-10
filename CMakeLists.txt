@@ -8,4 +8,5 @@ add_executable(ft_printf
         author
         LICENSE
         README.md
-        src/ft_printf.c)
+        src/ft_printf.c
+        test/t)

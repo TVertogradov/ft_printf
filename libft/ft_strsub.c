@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/05 13:04:49 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/05 13:48:21 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	char	*str;
+
+	if (s == NULL)
+		return (NULL);
+	str = malloc(sizeof(char) * (len + 1));
+	if (str)
+	{
+		while (start--)
+			s++;
+		ft_strncpy(str, s, len);
+		str[len] = '\0';
+	}
+	return (str);
 }

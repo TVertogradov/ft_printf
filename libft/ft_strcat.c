@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 12:03:20 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/02 12:18:58 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

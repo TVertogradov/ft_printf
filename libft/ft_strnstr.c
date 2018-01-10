@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/11/02 15:04:40 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/11/08 18:05:27 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	size_t	len2;
+
+	if (*s2 == '\0')
+		return ((char *)s1);
+	len2 = ft_strlen(s2);
+	while (*s1 != '\0' && n-- >= len2)
+	{
+		if (*s1 == *s2 && ft_memcmp(s1, s2, len2) == 0)
+			return ((char *)s1);
+		s1++;
+	}
+	return (NULL);
 }

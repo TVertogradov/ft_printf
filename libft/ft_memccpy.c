@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvertohr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:45:52 by tvertohr          #+#    #+#             */
-/*   Updated: 2018/01/10 11:46:43 by tvertohr         ###   ########.fr       */
+/*   Created: 2017/10/31 15:29:28 by tvertohr          #+#    #+#             */
+/*   Updated: 2017/10/31 16:21:16 by tvertohr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	write(1, "t", 1);
-    write(1, "u", 1);
-    ft_putstr("Hello");
-    return (0);
+	unsigned int		i;
+	unsigned char		*s1;
+	const unsigned char	*s2;
+	unsigned char		x;
+
+	i = 0;
+	s1 = (unsigned char *)dst;
+	s2 = (const unsigned char *)src;
+	x = (unsigned char)c;
+	while (i < n)
+	{
+		if ((*s1++ = *s2++) == x)
+			return (s1);
+		i++;
+	}
+	return (NULL);
 }
