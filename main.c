@@ -15,4 +15,5 @@
 int main(void)
 {
 	write(1, "t", 1);
+    write(1, "u", 1);
 }
