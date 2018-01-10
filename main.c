@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
 int main(void)
 {
+    char *s = "Hello";
 	write(1, "t", 1);
     write(1, "u", 1);
+    ft_putstr(s);
 }
