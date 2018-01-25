@@ -14,10 +14,6 @@
 
 int ft_printf(const char *f, ...) {
     va_list ap;
-    char *s_key;
-    char c_key;
-    int num;
-    double d;
 
     va_start(ap, f);
     while (*f) {
@@ -26,23 +22,17 @@ int ft_printf(const char *f, ...) {
             f++;
             continue;
         }
-        while (*++f == 'd' || *f == 'f' || *f == 's' || *f == 'c') {
+        while (*++f == 'd' || *f == 's' || *f == 'c') {
             if (*f == 'd') {
-                num = va_arg(ap, int);
-                ft_putstr(ft_itoa(num));
+                ft_d_ind(ap);
                 f++;
                 break;
             } else if (*f == 's') {
-                s_key = va_arg(ap, char *);
-                while (*s_key) {
-                    ft_putchar(*s_key);
-                    s_key++;
-                }
+                ft_s_ind(ap);
                 f++;
                 break;
             } else if (*f == 'c') {
-                c_key = va_arg(ap, char);
-                ft_putchar(c_key);
+                ft_c_ind(ap);
                 f++;
                 break;
             }
@@ -60,10 +50,10 @@ int main(void)
 
     n = -23;
     b = 11;
-    ft_printf("\n%d Hello m%dy name new %s     %s < %c > I Love <<%c<<", n, b, s, s, 64, c);
+    ft_printf("\n%d Hello m%dy name new %s     %s < %c > I %c Love <<%c<<", n, b, s, s, 64, c, c);
     //miniprintf("\n%d Hello m%dy name new %s", n, b, s);
     //printf("\n%d Hello m%dy name %f new %s", n, b, dob, s);
-    printf("\n%d Hello m%dy name new %s     %s < %c >", n, b, s, s, 64);
+    printf("\n%d Hello m%dy name new %s     %s < %c > I %c Love <<%c<<", n, b, s, s, 64, c, c);
 
     return (0);
 
