@@ -17,10 +17,18 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+typedef struct s_printf
+{
+    char mod;
+
+}t_printf;
+
 int ft_printf(const char *format, ...);
 
 void ft_c_ind(va_list ap);
 void ft_d_ind(va_list ap);
 void ft_s_ind(va_list ap);
+void ft_ld_ind(va_list ap);
+void check_l(char f, va_list ap);
 
 #endif
