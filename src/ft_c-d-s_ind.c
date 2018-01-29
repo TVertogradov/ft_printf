@@ -37,7 +37,6 @@ void ft_ld_ind(va_list ap)
 
 void check_l(char f, va_list ap)
 {
-    if (f == 'd') {
+    if (f == 'd' || f == 'i')
         ft_ld_ind(ap);
-    }
 }
