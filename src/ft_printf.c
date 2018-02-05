@@ -14,6 +14,7 @@
 
 int ft_printf(const char *f, ...) {
     va_list ap;
+    int     count;
 
     va_start(ap, f);
     while (*f) {
@@ -45,6 +46,7 @@ int ft_printf(const char *f, ...) {
         }
         va_end(ap);
     }
+    return (count);
 }
 
 

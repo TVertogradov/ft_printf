@@ -15,7 +15,7 @@ add_executable(ft_printf
         src/ft_printf.c
         src/test.c
         ${LIBFT}
-        src/miniprintf.c src/ft_c-d-s_ind.c)
+        src/miniprintf.c src/ft_c-d-s_ind.c src/ft_itoa_base.c)
 
 
 

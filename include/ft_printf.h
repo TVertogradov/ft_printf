@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+
 typedef struct s_printf
 {
     char mod;
@@ -24,6 +25,7 @@ typedef struct s_printf
 }t_printf;
 
 int ft_printf(const char *format, ...);
+char	*ft_itoa_base(int value, int base);
 
 void ft_c_ind(va_list ap);
 void ft_d_ind(va_list ap);
