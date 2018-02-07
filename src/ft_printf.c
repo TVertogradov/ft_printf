@@ -14,11 +14,7 @@
 
 
 
-int ft_printf(const char *f, ...) {
-    va_list ap;
-    int     count;
-
-    va_start(ap, f);
+int ft_printf_count(const char *f, va_list ap, int n) {
     while (*f) {
         if (*f != '%' || *(f + 1) == 37) {
             ft_putchar(*f);
@@ -46,18 +42,17 @@ int ft_printf(const char *f, ...) {
                 break ;
             }
         }
-        va_end(ap);
     }
-    return (count);
+    return (n);
 }
 
-int     ft_printf(char *format, ...)
+int     ft_printf(const char *format, ...)
 {
     int     count;
     va_list ap;
 
     va_start(ap, format);
-    count = ft_printf_count(count, ap, format);
+    count = ft_printf_count(format, ap, count);
     va_end(ap);
     return (count);
 }
@@ -71,7 +66,8 @@ int main(int argc, char **argv)
 
     n = -23;
     b = 11;
-    ft_printf("\n%d Hell%%o m%iy name new%% %s  %ld   %s < %c > I %c Love <<%c<< %ld\n", n, b, s, d1, s, 64, c, c, d1);
+    ft_printf("\n%d Hell%%o m%iy name new%% %s  %ld   %s < %c > I %c Love <<%c<< %ld, %s\n", n, b, s, d1, s, 64, c, c, d1, "Tima");
+    printf("\n%d Hell%%o m%iy name new%% %s  %ld   %s < %c > I %c Love <<%c<< %ld\n", n, b, s, d1, s, 64, c, c, d1);
     //miniprintf("\n%d Hello m%dy name new %s", n, b, s);
     //printf("\n%d Hello m%dy name %f new %s", n, b, dob, s);
     //printf("\n%d Hell%%o m%dy name new%% %s     %s < %c > I %c Love <<%c<< %ld\n", n, b, s, s, 64, c, c, d1);

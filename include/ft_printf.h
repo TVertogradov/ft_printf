@@ -26,6 +26,7 @@ typedef struct s_printf
 
 int ft_printf(const char *format, ...);
 char	*ft_itoa_base(int value, int base);
+int ft_printf_count(const char *f, va_list ap, int n);
 
 void ft_c_ind(va_list ap);
 void ft_d_ind(va_list ap);
