@@ -33,4 +33,6 @@ void ft_s_ind(va_list ap);
 void ft_ld_ind(va_list ap);
 void check_l(char f, va_list ap);
 
+char	*ft_itoa_base(int value, int base);
+
 #endif

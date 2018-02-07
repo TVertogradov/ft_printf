@@ -12,6 +12,8 @@
 
 #include "../include/ft_printf.h"
 
+
+
 int ft_printf(const char *f, ...) {
     va_list ap;
     int     count;
@@ -23,7 +25,7 @@ int ft_printf(const char *f, ...) {
             f++;
             continue;
         }
-        while (*++f == 'd' || *f == 's' || *f == 'c' || *f == 'l' || *f == 'i') {
+        while (*++f == 'd' || *f == 's' || *f == 'c' || *f == 'l' || *f == 'i' || *f == 'p') {
             if (*(f+1) == 'd' || *(f+1) == 'i')
             {
                 check_l(*++f, ap);
@@ -34,7 +36,7 @@ int ft_printf(const char *f, ...) {
                 ft_d_ind(ap);
                 f++;
                 break ;
-            } else if (*f == 's') {
+            } else if (*f == 's' || *f == 'p') {
                 ft_s_ind(ap);
                 f++;
                 break ;
@@ -49,8 +51,18 @@ int ft_printf(const char *f, ...) {
     return (count);
 }
 
+int     ft_printf(char *format, ...)
+{
+    int     count;
+    va_list ap;
 
-int main(void)
+    va_start(ap, format);
+    count = ft_printf_count(count, ap, format);
+    va_end(ap);
+    return (count);
+}
+
+int main(int argc, char **argv)
 {
     int n, b;
     char *s = "World";
@@ -70,7 +82,9 @@ int main(void)
         printf ("%p\n",d1);
     }
     char d[4] = "abc";
-    printf("%p", d1);
+    //printf("%p", d1);
+    char *p;
+    printf("ITOA_BASE %s", ft_itoa_base(10, 16));
 
 
         return (0);
