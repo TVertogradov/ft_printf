@@ -1,42 +1,82 @@
 #include "../include/ft_printf.h"
 
-void ft_c_ind(va_list ap)
+int ft_c_ind(va_list ap)
 {
     char c_key;
 
     c_key = va_arg(ap, char);
     ft_putchar(c_key);
+
+    return (1);
 }
 
-void ft_d_ind(va_list ap)
+int ft_d_ind(va_list ap)
 {
-    int         num;
+    int     num;
+    char    *s;
+    int     len;
 
     num = va_arg(ap, int);
-    ft_putstr(ft_itoa(num));
+    s = ft_itoa(num);
+    len = ft_strlen(s);
+    ft_putstr(s);
+    return (len);
 }
 
-void ft_s_ind(va_list ap)
+int ft_s_ind(va_list ap)
 {
-    char *s_key;
+    char    *s_key;
+    int     len;
 
     s_key = va_arg(ap, char *);
+    len = ft_strlen(s_key);
     while (*s_key) {
         ft_putchar(*s_key);
         s_key++;
     }
+    return (len);
 }
 
-void ft_ld_ind(va_list ap)
+int ft_ld_ind(va_list ap)
 {
-    long int d1;
+    long int    d1;
+    int         len;
+    char        *s;
 
     d1 = va_arg(ap, long int);
-    ft_putstr(ft_itoa(d1));
+    s = ft_itoa(d1);
+    len = ft_strlen(s);
+    ft_putstr(s);
+    return (len);
 }
 
-void check_l(char f, va_list ap)
+int check_l(char f, va_list ap)
 {
+    int     len;
+
     if (f == 'd' || f == 'i')
-        ft_ld_ind(ap);
+        return (len = ft_ld_ind(ap));
+}
+
+int ft_p_ind(va_list ap)
+{
+    char    *p_key;
+    int     len;
+
+    ft_putstr("0x");
+    p_key = ft_itoa_base(va_arg(ap, uintmax_t), 16);
+    ft_putstr(p_key);
+    len = ft_strlen(p_key);
+    return (len + 2);
+}
+
+int ft_o_ind(va_list ap)
+{
+    char    *p_key;
+    int     len;
+
+    p_key = ft_itoa_base(va_arg(ap, unsigned int), 8);
+    ft_putstr(p_key);
+    len = ft_strlen(p_key);
+    return (len);
 }

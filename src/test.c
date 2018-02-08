@@ -1,16 +1,20 @@
 #include "../include/ft_printf.h"
 
-double average(int count, ...)
+int main(int argc, char **argv)
 {
-    va_list ap;
-    int j;
-    double sum = 0;
+    int n, b;
+    char *s = "World";
+    char c = 'b';
+    unsigned long int d1=78787;
 
-     va_start(ap, count); /* Требуется последний известный аргумент (чтобы получить адрес первого неизвестного) */
-     for (j = 0; j < count; j++) {
-         sum += va_arg(ap, double); /* Увеличивает ap до следующего аргумента. */
-    }
-     va_end(ap);
+    n = -23;
+    b = 11;
 
-     return sum / count;
+    ft_printf("\n%d Hell%%o m%iy name new%% %s  %ld   %s < %p > I %c Love <<%c<< %ld, %s pointer-%p(n=)\n", n, b, s, d1, s, 64, c, c, d1, "Tima", "HELLO");
+    printf("\n%d Hell%%o m%iy name new%% %s  %ld   %s < %p > I %c Love <<%c<< %ld, %s pointer-%p(n=)\n", n, b, s, d1, s, 64, c, c, d1, "Tima", "HELLO");
+
+
+
+    return (0);
+
 }

@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+# include <inttypes.h>
 
 
 typedef struct s_printf
@@ -24,16 +25,16 @@ typedef struct s_printf
 
 }t_printf;
 
-int ft_printf(const char *format, ...);
-char	*ft_itoa_base(int value, int base);
-int ft_printf_count(const char *f, va_list ap, int n);
+int     ft_printf(const char *format, ...);
+char    *ft_itoa_base(uintmax_t value, int base);
+int     ft_printf_count(const char *f, va_list ap, int n);
 
-void ft_c_ind(va_list ap);
-void ft_d_ind(va_list ap);
-void ft_s_ind(va_list ap);
-void ft_ld_ind(va_list ap);
-void check_l(char f, va_list ap);
-
-char	*ft_itoa_base(int value, int base);
+int     ft_c_ind(va_list ap);
+int     ft_d_ind(va_list ap);
+int     ft_s_ind(va_list ap);
+int     ft_ld_ind(va_list ap);
+int     ft_p_ind(va_list ap);
+int     ft_o_ind(va_list ap);
+int     check_l(char f, va_list ap);
 
 #endif
