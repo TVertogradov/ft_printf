@@ -23,7 +23,8 @@ int ft_printf_count(const char *f, va_list ap, int n)
             n++;
             continue;
         }
-        while (*++f == 'd' || *f == 's' || *f == 'c' || *f == 'l' || *f == 'i' || *f == 'p' || *f == 'o')
+        while (*++f == 'd' || *f == 's' || *f == 'c' || *f == 'l' || *f == 'i' ||
+                *f == 'p' || (*f == 'o' || *f == 'O') || (*f == 'x' || *f == 'X') || (*f == 'u' || *f == 'U'))
         {
             if (*(f+1) == 'd' || *(f+1) == 'i')
             {
@@ -51,12 +52,19 @@ int ft_printf_count(const char *f, va_list ap, int n)
                 n += ft_p_ind(ap);
                 f++;
                 break ;
-            } //else if (*f == 'o')
-            //{
-             //   n += ft_o_ind(ap);
-             //   f++;
-             //   break ;
-            //}
+            } else if (*f == 'o' || *f == 'O'){
+                n += ft_oO_ind(ap, *f);
+                f++;
+                break ;
+            } else if (*f == 'x' || *f == 'X'){
+                n += ft_xX_ind(ap, *f);
+                f++;
+                break ;
+            } else if (*f == 'u' || *f == 'U'){
+                n += ft_uU_ind(ap, *f);
+                f++;
+                break ;
+            }
         }
     }
     return (n);

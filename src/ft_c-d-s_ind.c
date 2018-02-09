@@ -70,13 +70,45 @@ int ft_p_ind(va_list ap)
     return (len + 2);
 }
 
-int ft_o_ind(va_list ap)
+int ft_oO_ind(va_list ap, char f)
 {
-    char    *p_key;
+    char    *key;
     int     len;
 
-    p_key = ft_itoa_base(va_arg(ap, unsigned int), 8);
-    ft_putstr(p_key);
-    len = ft_strlen(p_key);
+    if (f == 'o')
+        key = ft_itoa_base(va_arg(ap, unsigned int), 8);
+    else
+        key = ft_itoa_base_A(va_arg(ap, unsigned int), 8);
+    ft_putstr(key);
+    len = ft_strlen(key);
     return (len);
 }
+
+int ft_xX_ind(va_list ap, char f)
+{
+    char    *key;
+    int     len;
+
+    if (f == 'x')
+        key = ft_itoa_base(va_arg(ap, unsigned int), 16);
+    else
+        key = ft_itoa_base_A(va_arg(ap, unsigned int), 16);
+    ft_putstr(key);
+    len = ft_strlen(key);
+    return (len);
+}
+
+int ft_uU_ind(va_list ap, char f)
+{
+    char    *key;
+    int     len;
+
+    if (f == 'u')
+        key = ft_itoa_base(va_arg(ap, unsigned int), 10);
+    else
+        key = ft_itoa_base_A(va_arg(ap, unsigned int), 10);
+    ft_putstr(key);
+    len = ft_strlen(key);
+    return (len);
+}
+
