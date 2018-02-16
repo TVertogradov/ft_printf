@@ -2,9 +2,9 @@
 
 int ft_c_ind(va_list ap)
 {
-    char c_key;
+    int c_key;
 
-    c_key = va_arg(ap, char);
+    c_key = va_arg(ap, int);
     ft_putchar(c_key);
 
     return (1);
@@ -56,6 +56,7 @@ int check_l(char f, va_list ap)
 
     if (f == 'd' || f == 'i')
         return (len = ft_ld_ind(ap));
+    return (0);
 }
 
 int ft_p_ind(va_list ap)

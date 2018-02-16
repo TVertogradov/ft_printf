@@ -12,9 +12,25 @@
 
 #include "../include/ft_printf.h"
 
+int is_a_flag(char f, char *flags)
+{
+    int i;
+
+    i = 0;
+    while (flags[i] != '\0')
+    {
+        if (f == flags[i])
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
 int ft_printf_count(const char *f, va_list ap, int n)
 {
-    n = 0;
+    char *flags;
+
+    flags = "sSpdDioOuUxXcC";
     while (*f) {
         if (*f != '%' || *(f + 1) == 37)
         {
@@ -24,7 +40,7 @@ int ft_printf_count(const char *f, va_list ap, int n)
             continue;
         }
         while (*++f == 'd' || *f == 's' || *f == 'c' || *f == 'l' || *f == 'i' ||
-                *f == 'p' || (*f == 'o' || *f == 'O') || (*f == 'x' || *f == 'X') || (*f == 'u' || *f == 'U'))
+                *f == 'p' || (*f == 'o' || *f == 'O') || (*f == 'x' || *f == 'X') || (*f == 'u' || *f == 'U') || *f == 'D')
         {
             if (*(f+1) == 'd' || *(f+1) == 'i')
             {
@@ -64,6 +80,10 @@ int ft_printf_count(const char *f, va_list ap, int n)
                 n += ft_uU_ind(ap, *f);
                 f++;
                 break ;
+            } else if (*f == 'D'){
+                n += ft_ld_ind(ap);
+                f++;
+                break ;
             }
         }
     }
@@ -75,6 +95,7 @@ int     ft_printf(const char *format, ...)
     int     count;
     va_list ap;
 
+    count = 0;
     va_start(ap, format);
     count = ft_printf_count(format, ap, count);
     va_end(ap);
